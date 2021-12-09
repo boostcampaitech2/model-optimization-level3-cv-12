@@ -1,0 +1,27 @@
+[32m[I 2021-11-25 05:51:01,709][39m Trial 0 finished with value: 5.121021035509627 and parameters: {'x': 4.262967307653742}. Best is trial 0 with value: 5.121021035509627.
+[32m[I 2021-11-25 05:51:01,805][39m Trial 1 finished with value: 2.0323762127328786 and parameters: {'x': 3.425614328187283}. Best is trial 1 with value: 2.0323762127328786.
+[32m[I 2021-11-25 05:51:01,888][39m Trial 2 finished with value: 32.783762587497435 and parameters: {'x': -3.725710662223287}. Best is trial 1 with value: 2.0323762127328786.
+[32m[I 2021-11-25 05:51:01,930][39m Using an existing study with name 'example-study' instead of creating a new one.
+[32m[I 2021-11-25 05:51:02,074][39m Trial 3 finished with value: 21.398795821515293 and parameters: {'x': -2.625883247717704}. Best is trial 1 with value: 2.0323762127328786.
+[32m[I 2021-11-25 05:51:02,138][39m Trial 4 finished with value: 36.340513147287744 and parameters: {'x': -4.028309310850576}. Best is trial 1 with value: 2.0323762127328786.
+[32m[I 2021-11-25 05:51:02,214][39m Trial 5 finished with value: 0.4272397681552245 and parameters: {'x': 1.3463641930285455}. Best is trial 5 with value: 0.4272397681552245.
+[32m[I 2021-11-25 05:51:02,268][39m Using an existing study with name 'example-study' instead of creating a new one.
+Trial 0 finished with value: 5.121021035509627 and parameters: {'x': 4.262967307653742}. Best is trial 0 with value: 5.121021035509627.
+Trial 1 finished with value: 2.0323762127328786 and parameters: {'x': 3.425614328187283}. Best is trial 1 with value: 2.0323762127328786.
+Trial 2 finished with value: 32.783762587497435 and parameters: {'x': -3.725710662223287}. Best is trial 1 with value: 2.0323762127328786.
+Using an existing study with name 'example-study' instead of creating a new one.
+Trial 3 finished with value: 21.398795821515293 and parameters: {'x': -2.625883247717704}. Best is trial 1 with value: 2.0323762127328786.
+Trial 4 finished with value: 36.340513147287744 and parameters: {'x': -4.028309310850576}. Best is trial 1 with value: 2.0323762127328786.
+Trial 5 finished with value: 0.4272397681552245 and parameters: {'x': 1.3463641930285455}. Best is trial 5 with value: 0.4272397681552245.
+Using an existing study with name 'example-study' instead of creating a new one.
+   number      value  params_x     state
+0       0   5.121021  4.262967  COMPLETE
+1       1   2.032376  3.425614  COMPLETE
+2       2  32.783763 -3.725711  COMPLETE
+3       3  21.398796 -2.625883  COMPLETE
+4       4  36.340513 -4.028309  COMPLETE
+5       5   0.427240  1.346364  COMPLETE
+Best params:  {'x': 1.3463641930285455}
+Best value:  0.4272397681552245
+Best Trial:  FrozenTrial(number=5, values=[0.4272397681552245], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 2, 155052), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 2, 179380), params={'x': 1.3463641930285455}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=6, state=TrialState.COMPLETE, value=None)
+Trials:  [FrozenTrial(number=0, values=[5.121021035509627], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 1, 597149), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 1, 654734), params={'x': 4.262967307653742}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=1, state=TrialState.COMPLETE, value=None), FrozenTrial(number=1, values=[2.0323762127328786], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 1, 731625), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 1, 765569), params={'x': 3.425614328187283}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=2, state=TrialState.COMPLETE, value=None), FrozenTrial(number=2, values=[32.783762587497435], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 1, 812057), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 1, 839867), params={'x': -3.725710662223287}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=3, state=TrialState.COMPLETE, value=None), FrozenTrial(number=3, values=[21.398795821515293], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 1, 966280), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 2, 16845), params={'x': -2.625883247717704}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=4, state=TrialState.COMPLETE, value=None), FrozenTrial(number=4, values=[36.340513147287744], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 2, 78641), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 2, 107335), params={'x': -4.028309310850576}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=5, state=TrialState.COMPLETE, value=None), FrozenTrial(number=5, values=[0.4272397681552245], datetime_start=datetime.datetime(2021, 11, 25, 5, 51, 2, 155052), datetime_complete=datetime.datetime(2021, 11, 25, 5, 51, 2, 179380), params={'x': 1.3463641930285455}, distributions={'x': UniformDistribution(high=10.0, low=-10.0)}, user_attrs={}, system_attrs={}, intermediate_values={}, trial_id=6, state=TrialState.COMPLETE, value=None)]

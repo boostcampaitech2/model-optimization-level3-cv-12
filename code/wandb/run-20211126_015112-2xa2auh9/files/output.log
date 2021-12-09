@@ -1,0 +1,462 @@
+idx |   n |     params |          module |            arguments |   in_channel |   out_channel
+----------------------------------------------------------------------------------------------
+  0 |   1 |        464 |            Conv | [16, 3, 2, None, 1, 'Hardswish'] |            3           16
+  1 |   2 |      3,808 | InvertedResidualv3 | [3, 1.6, 32, 0, 1, 2] |           16           24
+  2 |   1 |        320 |          DWConv | [80, 1, 1, None, 'Hardswish'] |           24           64
+  3 |   1 |     38,792 | InvertedResidualv3 | [5, 2.6, 72, 1, 0, 2] |           64           56
+  4 |   1 |     16,704 |            Conv |          [384, 1, 1] |           56          288
+  5 |   1 |          0 |   GlobalAvgPool |                   [] |          288          288
+  6 |   1 |      1,740 |       FixedConv | [6, 1, 1, None, 1, None] |          288            6
+Model Summary: 57 layers, 61,828 parameters, 61,828 gradients
+tune.py:464: FutureWarning: MOTPESampler has been deprecated in v2.9.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.9.0.
+  sampler = optuna.samplers.MOTPESampler()
+tune.py:474: FutureWarning: create_study has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  load_if_exists=True,
+[32m[I 2021-11-26 01:51:18,306][39m A new study created in memory with name: automl101
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py:133: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  return MultiObjectiveStudy(study)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/samplers/_adapter.py:25: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_study = multi_objective.study.MultiObjectiveStudy(study)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/samplers/_adapter.py:26: FutureWarning: FrozenMultiObjectiveTrial has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_trial = multi_objective.trial.FrozenMultiObjectiveTrial(mo_study.n_objectives, trial)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/samplers/_adapter.py:32: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_study = multi_objective.study.MultiObjectiveStudy(study)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/samplers/_adapter.py:33: FutureWarning: FrozenMultiObjectiveTrial has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_trial = multi_objective.trial.FrozenMultiObjectiveTrial(mo_study.n_objectives, trial)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py:316: FutureWarning: MultiObjectiveTrial has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_trial = multi_objective.trial.MultiObjectiveTrial(trial)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/trial.py:43: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  self._n_objectives = multi_objective.study.MultiObjectiveStudy(trial.study).n_objectives
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/samplers/_adapter.py:43: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_study = multi_objective.study.MultiObjectiveStudy(study)
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/samplers/_adapter.py:44: FutureWarning: FrozenMultiObjectiveTrial has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  mo_trial = multi_objective.trial.FrozenMultiObjectiveTrial(mo_study.n_objectives, trial)
+---------------------------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------------------------------------
+Name                               Self CPU total %  Self CPU total   CPU total %      CPU total        CPU time avg     CUDA total %     CUDA total       CUDA time avg    Number of Calls  Input Shapes
+---------------------------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------------------------------------
+conv2d                             0.20%            16.449us         4.45%            362.030us        362.030us        1.38%            361.472us        361.472us        1                []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Train: [001] Loss: 1.575, Acc: 36.14% F1(macro): 0.18: 100%|██████████████████████████████████████████████████████████████| 488/488 [00:49<00:00,  9.88it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Val:       Loss: 1.443, Acc: 43.10% F1(macro): 0.20: 100%|███████████████████████████████████████████████████████████████| 163/163 [00:25<00:00,  6.36it/s]
+convolution                        0.18%            14.746us         4.25%            345.581us        345.581us        1.32%            346.112us        346.112us        1                []
+_convolution                       0.77%            62.732us         4.07%            330.835us        330.835us        1.26%            330.752us        330.752us        1                []
+size                               0.06%            4.499us          0.06%            4.499us          4.499us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.577us          0.04%            3.577us          3.577us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.578us          0.04%            3.578us          3.578us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.327us          0.04%            3.327us          3.327us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.608us          0.04%            3.608us          3.608us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.443us          0.04%            3.443us          3.443us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.06%            4.535us          0.06%            4.535us          4.535us          0.02%            4.096us          4.096us          1                []
+cudnn_convolution                  1.93%            156.554us        2.97%            241.536us        241.536us        0.92%            240.640us        240.640us        1                []
+empty                              0.10%            7.935us          0.10%            7.935us          7.935us          0.03%            8.192us          8.192us          1                []
+contiguous                         0.05%            4.017us          0.05%            4.017us          4.017us          0.02%            4.096us          4.096us          1                []
+resize_                            0.06%            4.660us          0.06%            4.660us          4.660us          0.02%            5.120us          5.120us          1                []
+contiguous                         0.05%            3.708us          0.05%            3.708us          3.708us          0.02%            4.096us          4.096us          1                []
+resize_                            0.04%            3.514us          0.04%            3.514us          3.514us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.534us          0.04%            3.534us          3.534us          0.01%            3.072us          3.072us          1                []
+stride                             0.05%            4.236us          0.05%            4.236us          4.236us          0.01%            3.072us          3.072us          1                []
+size                               0.05%            3.673us          0.05%            3.673us          3.673us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.609us          0.04%            3.609us          3.609us          0.02%            4.096us          4.096us          1                []
+stride                             0.04%            3.386us          0.04%            3.386us          3.386us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.445us          0.04%            3.445us          3.445us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.390us          0.04%            3.390us          3.390us          0.01%            3.072us          3.072us          1                []
+stride                             0.04%            3.532us          0.04%            3.532us          3.532us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.547us          0.04%            3.547us          3.547us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.624us          0.04%            3.624us          3.624us          0.01%            3.072us          3.072us          1                []
+stride                             0.04%            3.443us          0.04%            3.443us          3.443us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.494us          0.04%            3.494us          3.494us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.431us          0.04%            3.431us          3.431us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.328us          0.04%            3.328us          3.328us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.296us          0.04%            3.296us          3.296us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.439us          0.04%            3.439us          3.439us          0.02%            4.096us          4.096us          1                []
+empty                              0.06%            4.741us          0.06%            4.741us          4.741us          0.02%            4.096us          4.096us          1                []
+batch_norm                         0.16%            12.644us         2.07%            168.354us        168.354us        0.64%            168.960us        168.960us        1                []
+_batch_norm_impl_index             0.52%            42.131us         1.92%            155.710us        155.710us        0.59%            155.648us        155.648us        1                []
+size                               0.05%            3.789us          0.05%            3.789us          3.789us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.317us          0.04%            3.317us          3.317us          0.02%            4.096us          4.096us          1                []
+contiguous                         0.05%            3.945us          0.05%            3.945us          3.945us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.04%            3.559us          0.04%            3.559us          3.559us          0.02%            4.096us          4.096us          1                []
+contiguous                         0.05%            3.924us          0.05%            3.924us          3.924us          0.02%            4.096us          4.096us          1                []
+contiguous                         0.04%            3.517us          0.04%            3.517us          3.517us          0.02%            4.096us          4.096us          1                []
+contiguous                         0.04%            3.517us          0.04%            3.517us          3.517us          0.01%            3.072us          3.072us          1                []
+cudnn_batch_norm                   0.70%            56.495us         1.08%            88.011us         88.011us         0.34%            88.064us         88.064us         1                []
+size                               0.05%            3.708us          0.05%            3.708us          3.708us          0.01%            3.072us          3.072us          1                []
+empty_like                         0.12%            9.525us          0.21%            16.864us         16.864us         0.06%            16.384us         16.384us         1                []
+empty                              0.09%            7.339us          0.09%            7.339us          7.339us          0.03%            7.168us          7.168us          1                []
+view                               0.08%            6.598us          0.08%            6.598us          6.598us          0.02%            6.144us          6.144us          1                []
+empty                              0.05%            4.346us          0.05%            4.346us          4.346us          0.01%            3.072us          3.072us          1                []
+hardswish                          0.37%            30.207us         0.45%            36.615us         36.615us         0.14%            36.864us         36.864us         1                []
+empty                              0.08%            6.408us          0.08%            6.408us          6.408us          0.02%            6.144us          6.144us          1                []
+conv2d                             0.12%            9.731us          4.21%            342.508us        342.508us        1.30%            342.016us        342.016us        1                []
+convolution                        0.11%            9.282us          4.09%            332.777us        332.777us        1.27%            332.800us        332.800us        1                []
+_convolution                       0.50%            40.543us         3.98%            323.495us        323.495us        1.24%            325.632us        325.632us        1                []
+size                               0.05%            4.210us          0.05%            4.210us          4.210us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.586us          0.04%            3.586us          3.586us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.566us          0.04%            3.566us          3.566us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.457us          0.04%            3.457us          3.457us          0.02%            4.096us          4.096us          1                []
+size                               0.05%            3.665us          0.05%            3.665us          3.665us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.416us          0.04%            3.416us          3.416us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.05%            4.076us          0.05%            4.076us          4.076us          0.02%            4.096us          4.096us          1                []
+cudnn_convolution                  2.12%            172.557us        3.16%            256.976us        256.976us        0.99%            260.096us        260.096us        1                []
+empty                              0.08%            6.365us          0.08%            6.365us          6.365us          0.02%            6.144us          6.144us          1                []
+contiguous                         0.06%            4.829us          0.06%            4.829us          4.829us          0.02%            4.096us          4.096us          1                []
+resize_                            0.05%            4.172us          0.05%            4.172us          4.172us          0.02%            4.096us          4.096us          1                []
+contiguous                         0.04%            3.521us          0.04%            3.521us          3.521us          0.02%            4.096us          4.096us          1                []
+resize_                            0.04%            3.625us          0.04%            3.625us          3.625us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.542us          0.04%            3.542us          3.542us          0.01%            3.072us          3.072us          1                []
+stride                             0.04%            3.652us          0.04%            3.652us          3.652us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.279us          0.04%            3.279us          3.279us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.554us          0.04%            3.554us          3.554us          0.01%            3.072us          3.072us          1                []
+stride                             0.04%            3.588us          0.04%            3.588us          3.588us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.546us          0.04%            3.546us          3.546us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.307us          0.04%            3.307us          3.307us          0.01%            2.048us          2.048us          1                []
+stride                             0.05%            3.760us          0.05%            3.760us          3.760us          0.02%            4.096us          4.096us          1                []
+size                               0.05%            3.692us          0.05%            3.692us          3.692us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.264us          0.04%            3.264us          3.264us          0.02%            4.096us          4.096us          1                []
+stride                             0.04%            3.424us          0.04%            3.424us          3.424us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.623us          0.04%            3.623us          3.623us          0.02%            4.096us          4.096us          1                []
+size                               0.05%            3.713us          0.05%            3.713us          3.713us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.267us          0.04%            3.267us          3.267us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.229us          0.04%            3.229us          3.229us          0.01%            3.072us          3.072us          1                []
+size                               0.04%            3.510us          0.04%            3.510us          3.510us          0.01%            3.072us          3.072us          1                []
+empty                              0.07%            5.957us          0.07%            5.957us          5.957us          0.02%            6.144us          6.144us          1                []
+batch_norm                         0.14%            11.315us         1.86%            151.446us        151.446us        0.57%            150.528us        150.528us        1                []
+_batch_norm_impl_index             0.47%            37.912us         1.72%            140.131us        140.131us        0.53%            140.288us        140.288us        1                []
+size                               0.05%            3.709us          0.05%            3.709us          3.709us          0.02%            4.096us          4.096us          1                []
+size                               0.04%            3.299us          0.04%            3.299us          3.299us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.05%            3.979us          0.05%            3.979us          3.979us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.05%            3.768us          0.05%            3.768us          3.768us          0.02%            4.096us          4.096us          1                []
+contiguous                         0.04%            3.533us          0.04%            3.533us          3.533us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.04%            3.566us          0.04%            3.566us          3.566us          0.01%            3.072us          3.072us          1                []
+contiguous                         0.04%            3.578us          0.04%            3.578us          3.578us          0.02%            4.096us          4.096us          1                []
+cudnn_batch_norm                   0.57%            46.597us         0.94%            76.787us         76.787us         0.29%            76.800us         76.800us         1                []
+size                               0.04%            3.539us          0.04%            3.539us          3.539us          0.01%            3.072us          3.072us          1                []
+empty_like                         0.12%            9.455us          0.20%            16.191us         16.191us         0.07%            17.408us         17.408us         1                []
+empty                              0.08%            6.736us          0.08%            6.736us          6.736us          0.02%            6.144us          6.144us          1                []
+view                               0.07%            5.942us          0.07%            5.942us          5.942us          0.02%            6.144us          6.144us          1                []
+empty                              0.06%            4.518us          0.06%            4.518us          4.518us          0.02%            4.096us          4.096us          1                []
+is_complex                         0.07%            5.538us          0.07%            5.538us          5.538us          0.02%            5.120us          5.120us          1                []
+add                                0.46%            37.511us         0.56%            45.184us         45.184us         0.17%            45.056us         45.056us         1                []
+---------------------------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------  ---------------------------------------------
+Self CPU time total: 8.128ms
+CUDA time total: 26.257ms
+measured time(ms) 2.101043176651001
+layer                                     name  gradient   parameters                shape         mu      sigma
+    0                      model.0.conv.weight      True          432        [16, 3, 3, 3]   -0.00551      0.113
+    1                        model.0.bn.weight      True           16                 [16]          1          0
+    2                          model.0.bn.bias      True           16                 [16]          0          0
+    3                  model.1.0.conv.0.weight      True          384       [24, 16, 1, 1]   0.000108      0.147
+    4                  model.1.0.conv.1.weight      True           24                 [24]          1          0
+    5                    model.1.0.conv.1.bias      True           24                 [24]          0          0
+    6                  model.1.0.conv.3.weight      True          216        [24, 1, 3, 3]   -0.00108      0.196
+    7                  model.1.0.conv.4.weight      True           24                 [24]          1          0
+    8                    model.1.0.conv.4.bias      True           24                 [24]          0          0
+    9                  model.1.0.conv.7.weight      True          576       [24, 24, 1, 1]   -0.00134      0.118
+   10                  model.1.0.conv.8.weight      True           24                 [24]          1          0
+   11                    model.1.0.conv.8.bias      True           24                 [24]          0          0
+   12                  model.1.1.conv.0.weight      True          960       [40, 24, 1, 1]    0.00118      0.117
+   13                  model.1.1.conv.1.weight      True           40                 [40]          1          0
+   14                    model.1.1.conv.1.bias      True           40                 [40]          0          0
+   15                  model.1.1.conv.3.weight      True          360        [40, 1, 3, 3]    -0.0145      0.196
+   16                  model.1.1.conv.4.weight      True           40                 [40]          1          0
+   17                    model.1.1.conv.4.bias      True           40                 [40]          0          0
+   18                  model.1.1.conv.7.weight      True          960       [24, 40, 1, 1]  -0.000399     0.0907
+   19                  model.1.1.conv.8.weight      True           24                 [24]          1          0
+   20                    model.1.1.conv.8.bias      True           24                 [24]          0          0
+   21                      model.2.conv.weight      True          192        [64, 3, 1, 1]    0.00546      0.332
+   22                        model.2.bn.weight      True           64                 [64]          1          0
+   23                          model.2.bn.bias      True           64                 [64]          0          0
+   24                  model.3.0.conv.0.weight      True        10752      [168, 64, 1, 1]    0.00042     0.0727
+   25                  model.3.0.conv.1.weight      True          168                [168]          1          0
+   26                    model.3.0.conv.1.bias      True          168                [168]          0          0
+   27                  model.3.0.conv.3.weight      True         4200       [168, 1, 5, 5]    0.00193      0.115
+   28                  model.3.0.conv.4.weight      True          168                [168]          1          0
+   29                    model.3.0.conv.4.bias      True          168                [168]          0          0
+   30              model.3.0.conv.5.fc1.weight      True         6720      [40, 168, 1, 1]  -0.000302     0.0449
+   31                model.3.0.conv.5.fc1.bias      True           40                 [40]    0.00573     0.0458
+   32              model.3.0.conv.5.fc2.weight      True         6720      [168, 40, 1, 1]    0.00134     0.0915
+   33                model.3.0.conv.5.fc2.bias      True          168                [168]    -0.0032     0.0889
+   34                  model.3.0.conv.7.weight      True         9408      [56, 168, 1, 1]  -0.000231     0.0446
+   35                  model.3.0.conv.8.weight      True           56                 [56]          1          0
+   36                    model.3.0.conv.8.bias      True           56                 [56]          0          0
+   37                      model.4.conv.weight      True        16128      [288, 56, 1, 1]   -0.00062     0.0768
+   38                        model.4.bn.weight      True          288                [288]          1          0
+   39                          model.4.bn.bias      True          288                [288]          0          0
+   40                      model.6.conv.weight      True         1728       [6, 288, 1, 1]  -0.000616     0.0341
+   41                        model.6.bn.weight      True            6                  [6]          1          0
+   42                          model.6.bn.bias      True            6                  [6]          0          0
+Model Summary: 58 layers, 61,828 parameters, 61,828 gradients
+Model saved. Current best test f1: 0.200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Train: [002] Loss: 1.512, Acc: 40.14% F1(macro): 0.19: 100%|██████████████████████████████████████████████████████████████| 488/488 [00:50<00:00,  9.75it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+ Val:       Loss: 1.400, Acc: 46.25% F1(macro): 0.28: 100%|███████████████████████████████████████████████████████████████| 163/163 [00:25<00:00,  6.31it/s]
+Model saved. Current best test f1: 0.282
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Train: [003] Loss: 1.483, Acc: 42.39% F1(macro): 0.21: 100%|██████████████████████████████████████████████████████████████| 488/488 [00:49<00:00,  9.84it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+ Val:       Loss: 1.381, Acc: 47.09% F1(macro): 0.27: 100%|███████████████████████████████████████████████████████████████| 163/163 [00:25<00:00,  6.36it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Train: [004] Loss: 1.442, Acc: 44.35% F1(macro): 0.21: 100%|██████████████████████████████████████████████████████████████| 488/488 [00:49<00:00,  9.90it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+ Val:       Loss: 1.320, Acc: 49.55% F1(macro): 0.28: : 183it [00:24,  5.18it/s]
+ Val:       Loss: 1.327, Acc: 49.22% F1(macro): 0.28: 100%|███████████████████████████████████████████████████████████████| 163/163 [00:25<00:00,  6.40it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Train: [005] Loss: 1.421, Acc: 45.31% F1(macro): 0.23: 100%|██████████████████████████████████████████████████████████████| 488/488 [00:49<00:00,  9.88it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+ Val:       Loss: 1.290, Acc: 50.68% F1(macro): 0.31: 100%|███████████████████████████████████████████████████████████████| 163/163 [00:25<00:00,  6.38it/s]
+Model saved. Current best test f1: 0.312
+
+
+
+
+
+
+
+
+
+
+
+ Val:       Loss: 1.269, Acc: 51.40% F1(macro): 0.29: : 177it [00:23,  4.98it/s]
+layer                                     name  gradient   parameters                shape         mu      sigma
+    0                      model.0.conv.weight      True          432        [16, 3, 3, 3]     0.0236      0.238
+    1                        model.0.bn.weight      True           16                 [16]      0.977      0.243
+    2                          model.0.bn.bias      True           16                 [16]     0.0441      0.234
+    3                  model.1.0.conv.0.weight      True          384       [24, 16, 1, 1]    -0.0321      0.231
+    4                  model.1.0.conv.1.weight      True           24                 [24]       0.99      0.108
+    5                    model.1.0.conv.1.bias      True           24                 [24]     0.0297      0.107
+    6                  model.1.0.conv.3.weight      True          216        [24, 1, 3, 3]    -0.0114      0.289
+    7                  model.1.0.conv.4.weight      True           24                 [24]       1.01       0.16
+    8                    model.1.0.conv.4.bias      True           24                 [24]     0.0312       0.15
+    9                  model.1.0.conv.7.weight      True          576       [24, 24, 1, 1]   -0.00435      0.176
+   10                  model.1.0.conv.8.weight      True           24                 [24]          1     0.0811
+   11                    model.1.0.conv.8.bias      True           24                 [24]  -5.85e-09   3.27e-08
+   12                  model.1.1.conv.0.weight      True          960       [40, 24, 1, 1]   -0.00253      0.142
+   13                  model.1.1.conv.1.weight      True           40                 [40]       1.03      0.081
+   14                    model.1.1.conv.1.bias      True           40                 [40]    -0.0173     0.0579
+   15                  model.1.1.conv.3.weight      True          360        [40, 1, 3, 3]    -0.0245      0.229
+   16                  model.1.1.conv.4.weight      True           40                 [40]       1.02       0.12
+   17                    model.1.1.conv.4.bias      True           40                 [40]    -0.0133     0.0293
+   18                  model.1.1.conv.7.weight      True          960       [24, 40, 1, 1]    0.00395      0.124
+   19                  model.1.1.conv.8.weight      True           24                 [24]          1     0.0597
+   20                    model.1.1.conv.8.bias      True           24                 [24]  -7.44e-09   2.28e-08
+   21                      model.2.conv.weight      True          192        [64, 3, 1, 1]    0.00672      0.342
+   22                        model.2.bn.weight      True           64                 [64]       1.01     0.0632
+   23                          model.2.bn.bias      True           64                 [64]    0.00457     0.0197
+   24                  model.3.0.conv.0.weight      True        10752      [168, 64, 1, 1]   -0.00316     0.0805
+   25                  model.3.0.conv.1.weight      True          168                [168]          1   0.000989
+   26                    model.3.0.conv.1.bias      True          168                [168]   -0.00563     0.0259
+   27                  model.3.0.conv.3.weight      True         4200       [168, 1, 5, 5]   -0.00254      0.122
+   28                  model.3.0.conv.4.weight      True          168                [168]          1     0.0277
+   29                    model.3.0.conv.4.bias      True          168                [168]    -0.0197     0.0291
+   30              model.3.0.conv.5.fc1.weight      True         6720      [40, 168, 1, 1]  -0.000739     0.0477
+   31                model.3.0.conv.5.fc1.bias      True           40                 [40]     0.0261     0.0596
+   32              model.3.0.conv.5.fc2.weight      True         6720      [168, 40, 1, 1]  -0.000953     0.0928
+   33                model.3.0.conv.5.fc2.bias      True          168                [168]   -0.00459     0.0887
+   34                  model.3.0.conv.7.weight      True         9408      [56, 168, 1, 1]   -0.00076     0.0583
+   35                  model.3.0.conv.8.weight      True           56                 [56]          1     0.0319
+   36                    model.3.0.conv.8.bias      True           56                 [56]  -9.23e-10   8.63e-09
+   37                      model.4.conv.weight      True        16128      [288, 56, 1, 1]   0.000448     0.0789
+   38                        model.4.bn.weight      True          288                [288]          1     0.0106
+   39                          model.4.bn.bias      True          288                [288]  -0.000564    0.00851
+   40                      model.6.conv.weight      True         1728       [6, 288, 1, 1]    -0.0254     0.0915
+   41                        model.6.bn.weight      True            6                  [6]      0.709      0.302
+   42                          model.6.bn.bias      True            6                  [6]   1.09e-06      0.802
+ Val:       Loss: 1.290, Acc: 50.68% F1(macro): 0.31: 100%|███████████████████████████████████████████████████████████████| 163/163 [00:25<00:00,  6.38it/s]
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py:487: FutureWarning: MultiObjectiveTrial has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  actual_values = multi_objective.trial.MultiObjectiveTrial(trial)._get_values()
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/trial.py:43: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  self._n_objectives = multi_objective.study.MultiObjectiveStudy(trial.study).n_objectives
+[32m[I 2021-11-26 01:58:06,856][39m Trial 0 finished with values: [0.31200882161444793, 61828.0, 2.101043176651001] with parameters: {'depth_multiple': 0.5, 'width_multiple': 0.75, 'm1': 'Conv', 'm1/repeat': 1, 'm1/out_channels': 16, 'm1/stride': 2, 'm1/activation': 'Hardswish', 'm2': 'InvertedResidualv3', 'm2/repeat': 5, 'm2/out_channels': 64, 'm2/stride': 2, 'm2/kernel_size': 3, 'm2/v3_t': 1.6, 'm2/v3_c': 32, 'm2/v3_se': 0, 'm2/v3_hs': 1, 'm3': 'Pass', 'm3/repeat': 1, 'm3/stride': 1, 'm4': 'DWConv', 'm4/repeat': 1, 'm4/stride': 1, 'm4/out_channels': 80, 'm4/kernel_size': 1, 'm4/activation': 'Hardswish', 'm5': 'Pass', 'm5/repeat': 1, 'm6': 'Pass', 'm6/repeat': 2, 'm6/stride': 2, 'm7': 'InvertedResidualv3', 'm7/repeat': 2, 'm7/stride': 2, 'm7/kernel_size': 5, 'm7/v3_t': 2.6, 'm7/v3_c': 72, 'm7/v3_se': 1, 'm7/v3_hs': 0, 'last_dim': 384, 'epochs': 5, 'img_size': 96, 'n_select': 4, 'batch_size': 32}.
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py:324: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  MultiObjectiveStudy(study),
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py:325: FutureWarning: FrozenMultiObjectiveTrial has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  multi_objective.trial.FrozenMultiObjectiveTrial(self.n_objectives, trial),
+Traceback (most recent call last):
+  File "tune.py", line 508, in <module>
+    tune(args.gpu, storage=args.storage if args.storage != "" else None)
+  File "tune.py", line 476, in tune
+    study.optimize(lambda trial: objective(trial, device), n_trials=100,callbacks=[wandbc])
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py", line 341, in optimize
+    show_progress_bar=show_progress_bar,
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/study/study.py", line 409, in optimize
+    show_progress_bar=show_progress_bar,
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/study/_optimize.py", line 76, in _optimize
+    progress_bar=progress_bar,
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/study/_optimize.py", line 177, in _optimize_sequential
+    callback(study, frozen_trial)
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py", line 325, in <lambda>
+    multi_objective.trial.FrozenMultiObjectiveTrial(self.n_objectives, trial),
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/integration/wandb.py", line 87, in __call__
+    direction = study.direction.name
+AttributeError: 'MultiObjectiveStudy' object has no attribute 'direction'

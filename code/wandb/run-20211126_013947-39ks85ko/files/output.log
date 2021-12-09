@@ -1,0 +1,13 @@
+tune.py:464: FutureWarning: MOTPESampler has been deprecated in v2.9.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.9.0.
+  sampler = optuna.samplers.MOTPESampler()
+tune.py:474: FutureWarning: create_study has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  load_if_exists=True,
+[32m[I 2021-11-26 01:39:53,187][39m A new study created in memory with name: automl101
+/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/multi_objective/study.py:133: FutureWarning: MultiObjectiveStudy has been deprecated in v2.4.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.4.0.
+  return MultiObjectiveStudy(study)
+Traceback (most recent call last):
+  File "tune.py", line 508, in <module>
+    tune(args.gpu, storage=args.storage if args.storage != "" else None)
+  File "tune.py", line 476, in tune
+    study.optimize(objective(trial, device), n_trials=100,callbacks=[wandbc])
+NameError: name 'trial' is not defined

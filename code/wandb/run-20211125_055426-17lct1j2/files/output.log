@@ -1,0 +1,19 @@
+tune.py:462: FutureWarning: MOTPESampler has been deprecated in v2.9.0. This feature will be removed in v4.0.0. See https://github.com/optuna/optuna/releases/tag/v2.9.0.
+  sampler = optuna.samplers.MOTPESampler()
+Traceback (most recent call last):
+  File "tune.py", line 506, in <module>
+    tune(args.gpu, storage=args.storage if args.storage != "" else None)
+  File "tune.py", line 464, in tune
+    rdb_storage = optuna.storages.RDBStorage(url=storage)
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/optuna/storages/_rdb/storage.py", line 175, in __init__
+    self.engine = create_engine(self.url, **self.engine_kwargs)
+  File "<string>", line 2, in create_engine
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 715, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/opt/conda/envs/lightweight/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 777, in _parse_rfc1738_args
+    "Could not parse rfc1738 URL from string '%s'" % name
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'taco'
